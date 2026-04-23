@@ -482,6 +482,10 @@ ul {
   line-height: 1.65;
 }
 
+.timeline-item .publication-list {
+  margin-top: 1.2em;
+}
+
 /* Skills */
 .skills-columns {
   display: grid;
