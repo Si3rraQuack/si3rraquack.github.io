@@ -205,21 +205,4 @@
 
   window.addEventListener('scroll', animateCounters, { passive: true });
   window.addEventListener('load', animateCounters);
-
-  /* ---------- CONTACT FORM (no backend, just UX) ---------- */
-  const form = document.querySelector('.contact-form');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var btn = form.querySelector('button[type="submit"]');
-      var originalHTML = btn.innerHTML;
-      btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent (Demo)';
-      btn.disabled = true;
-      setTimeout(function () {
-        btn.innerHTML = originalHTML;
-        btn.disabled = false;
-        form.reset();
-      }, 2500);
-    });
-  }
 })();

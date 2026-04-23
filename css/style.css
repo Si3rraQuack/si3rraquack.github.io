@@ -229,9 +229,10 @@ ul {
 
 /* ---------- MAIN CONTENT ---------- */
 .main-content {
-  margin-left: var(--sidebar-width);
-  padding: 50px 60px;
+  max-width: calc(2000px + var(--sidebar-width));
+  padding: 50px 60px 50px calc(var(--sidebar-width) + 60px);
   min-height: 100vh;
+  margin: 0 auto;
 }
 
 /* ---------- SECTIONS ---------- */
@@ -326,7 +327,7 @@ ul {
 
 .about-intro p {
   margin-bottom: 14px;
-  max-width: 750px;
+  max-width: 800px;
 }
 
 .about-buttons {
@@ -384,9 +385,7 @@ ul {
 
 /* ---------- RESUME ---------- */
 .resume-columns {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  display: block;
 }
 
 .resume-col > h3 {
@@ -541,8 +540,9 @@ ul {
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 24px;
+  max-width: calc(360px * 3 + 24px * 2);
 }
 
 .portfolio-card {
@@ -564,7 +564,7 @@ ul {
 }
 
 .portfolio-thumb {
-  height: 180px;
+  aspect-ratio: 2 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -617,8 +617,9 @@ ul {
 /* ---------- BLOG ---------- */
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 24px;
+  max-width: calc(360px * 3 + 24px * 2);
 }
 
 .blog-card {
@@ -727,44 +728,6 @@ ul {
   color: var(--accent);
 }
 
-/* Contact Form */
-.contact-form {
-  max-width: 700px;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.form-group {
-  margin-bottom: 16px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 14px 18px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--text);
-  background: var(--card-bg);
-  transition: border-color var(--transition), box-shadow var(--transition);
-  outline: none;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(226, 183, 20, 0.15);
-}
-
-.form-group textarea {
-  resize: vertical;
-}
 
 /* ---------- EXTRA ---------- */
 
@@ -835,57 +798,6 @@ ul {
   background: rgba(226, 183, 20, 0.06);
 }
 
-/* Game Experience */
-.game-exp-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
-}
-
-.game-exp-card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-  transition: all var(--transition);
-}
-
-.game-exp-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
-}
-
-.game-exp-card > i {
-  font-size: 1.4rem;
-  color: var(--accent);
-  margin-bottom: 12px;
-}
-
-.game-exp-card h4 {
-  font-size: 1rem;
-  margin-bottom: 12px;
-}
-
-.game-exp-card ul {
-  list-style: none;
-}
-
-.game-exp-card li {
-  font-size: 0.88rem;
-  color: var(--text-light);
-  padding: 4px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.game-exp-card li:last-child {
-  border-bottom: none;
-}
-
-.game-exp-card li strong {
-  color: var(--text-heading);
-  font-weight: 600;
-}
 
 /* ---------- FOOTER ---------- */
 .site-footer {
@@ -917,13 +829,9 @@ ul {
 /* Tablet */
 @media (max-width: 1100px) {
   .main-content {
-    padding: 50px 35px;
+    padding: 50px 35px 50px calc(var(--sidebar-width) + 35px);
   }
 
-  .resume-columns {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
 
   .skills-columns {
     grid-template-columns: 1fr;
@@ -947,7 +855,6 @@ ul {
   }
 
   .main-content {
-    margin-left: 0;
     padding: 76px 20px 40px;
   }
 
@@ -963,15 +870,9 @@ ul {
   .portfolio-grid,
   .blog-grid,
   .contact-info-grid,
-  .funfacts-grid,
-  .game-exp-grid {
+  .funfacts-grid {
     grid-template-columns: 1fr;
   }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-
   .about-buttons {
     flex-direction: column;
   }
