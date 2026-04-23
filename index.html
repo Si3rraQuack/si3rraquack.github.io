@@ -1,1 +1,442 @@
-<p>先来一个华丽登场</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sierra Sang — Game System Designer</title>
+  <meta name="description" content="Personal portfolio of Sierra Sang, a game system designer specializing in matchmaking, ranked systems, and data-driven game design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== SIDEBAR ===== -->
+  <div class="sidebar">
+    <div class="sidebar-inner">
+      <div class="avatar-wrap">
+        <img src="res/avatar.jpg" alt="Sierra Sang" class="avatar">
+      </div>
+      <h1 class="sidebar-name">Sierra Sang</h1>
+      <div class="sidebar-title">
+        <span class="typed-text"></span><span class="cursor-blink">|</span>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="#about" class="nav-link active"><i class="fa-solid fa-user"></i><span>About Me</span></a></li>
+          <li><a href="#resume" class="nav-link"><i class="fa-solid fa-file-lines"></i><span>Resume</span></a></li>
+          <li><a href="#portfolio" class="nav-link"><i class="fa-solid fa-briefcase"></i><span>Portfolio</span></a></li>
+          <li><a href="#blog" class="nav-link"><i class="fa-solid fa-blog"></i><span>Blog</span></a></li>
+          <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i><span>Contact</span></a></li>
+          <li><a href="#extra" class="nav-link"><i class="fa-solid fa-star"></i><span>Extra</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-social">
+        <a href="mailto:blocksang@outlook.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://github.com/Si3rraQuack" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile header -->
+  <div class="mobile-header">
+    <span class="mobile-name">Sierra Sang</span>
+    <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="main-content">
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <div class="section-title-border"></div>
+      </div>
+
+      <div class="about-intro">
+        <h3>Sierra Sang</h3>
+        <p>
+          I am a game system designer with 7+ years of experience building competitive matchmaking,
+          ranked progression, and live-service systems for large-scale multiplayer games. My engineering
+          background (M.S. from Tsinghua University) gives me strong quantitative foundations in
+          probabilistic modeling, data analysis, and optimization — skills I apply daily to create
+          fair, engaging, and data-driven player experiences.
+        </p>
+        <p>
+          I believe in specification-driven development and data-informed decision-making. I'm
+          currently seeking opportunities on projects with clear commercial direction, where I can
+          contribute to scaling systems and driving measurable player impact.
+        </p>
+        <div class="about-buttons">
+          <a href="res/cv.md" class="btn btn-primary" download><i class="fa-solid fa-download"></i> Download CV</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>What I Do</h3>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-crosshairs"></i></div>
+            <h4>Matchmaking &amp; Rating</h4>
+            <p>Glicko-2 and ELO-based rating systems with multi-dimensional queue design, supporting squad play, mid-join, and multi-faction scenarios.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-ranking-star"></i></div>
+            <h4>Ranked System Design</h4>
+            <p>Asymptotic rank progression that balances competitive integrity with player satisfaction, supported by leaderboards and achievement systems.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-coins"></i></div>
+            <h4>Monetization &amp; LiveOps</h4>
+            <p>PRD-based event systems, reward frameworks, daily energy cycles, and drop-rate control for sustainable live-service economies.</p>
+          </div>
+          <div class="service-card reveal">
+            <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h4>Data Analysis &amp; Simulation</h4>
+            <p>Stress-testing matchmaking at 1M+ concurrent scale, KPI evaluation, fairness metrics, and simulation-driven design validation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RESUME ===== -->
+    <section id="resume" class="section">
+      <div class="section-header">
+        <h2>Resume</h2>
+        <div class="section-title-border"></div>
+        <p class="section-subtitle">7+ Years of Experience</p>
+      </div>
+
+      <div class="resume-columns">
+        <!-- Education -->
+        <div class="resume-col">
+          <h3><i class="fa-solid fa-graduation-cap"></i> Education</h3>
+          <div class="timeline">
+            <div class="timeline-item reveal">
+              <span class="timeline-date">2016 — 2019</span>
+              <span class="timeline-company">Tsinghua University</span>
+              <h4>M.S. Chemical Engineering</h4>
+              <p>Graduate studies in process engineering and quantitative modeling, providing strong mathematical foundations for algorithm design and system optimization.</p>
+            </div>
+            <div class="timeline-item reveal">
+              <span class="timeline-date">2012 — 2016</span>
+              <span class="timeline-company">Tsinghua University</span>
+              <h4>B.S. Chemical Engineering</h4>
+              <p>Undergraduate program with emphasis on applied mathematics, thermodynamics, and computational methods.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="resume-col">
+          <h3><i class="fa-solid fa-briefcase"></i> Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item reveal">
+              <span class="timeline-date">2022 — Present</span>
+              <span class="timeline-company">Tencent Mofang Studio</span>
+              <h4>Matchmaking &amp; Ranked Module Lead</h4>
+              <p>Led matchmaking and ranked system design for <strong>ACE Force 2</strong>, a Valorant-style competitive FPS. Implemented Glicko-2 rating, multi-dimensional queue matching, and rank progression serving 1M+ test players. Core KPIs (match success rate, queue time, fairness) all met targets.</p>
+            </div>
+            <div class="timeline-item reveal">
+              <span class="timeline-date">2020 — 2022</span>
+              <span class="timeline-company">NetEase Dreamworks Studio</span>
+              <h4>Player Growth &amp; Matchmaking Lead</h4>
+              <p>Designed progression and matchmaking for <strong>Destiny Rising</strong>, an MMOSTG mobile game. Adapted Destiny 2's equipment system for mobile, built ELO-based matchmaking with squad support, and architected the daily energy and loot drop framework.</p>
+            </div>
+            <div class="timeline-item reveal">
+              <span class="timeline-date">2019 — 2020</span>
+              <span class="timeline-company">4399 — R&amp;D Dept. 4</span>
+              <h4>Multi-Module System Designer</h4>
+              <p>Designed monetization events, dungeon systems, and UI frameworks for <strong>Phantom Spirit</strong>, an RPG mobile game. Introduced FairyGUI component library to standardize UI workflows and reduce iteration costs.</p>
+            </div>
+            <div class="timeline-item reveal">
+              <span class="timeline-date">2018 — 2019</span>
+              <span class="timeline-company">4399 — Ninja Cat Studio</span>
+              <h4>Project Lead</h4>
+              <p>Led game design for <strong>Kitchen Rush 2</strong>, a restaurant simulation game. Designed the core serve loop, recipe progression, quest systems, leaderboards, and cooperative multiplayer features.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="section">
+      <div class="section-header">
+        <h2>Portfolio</h2>
+        <div class="section-title-border"></div>
+        <p class="section-subtitle">My Works</p>
+      </div>
+
+      <div class="portfolio-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="competitive">Competitive</button>
+        <button class="filter-btn" data-filter="rpg">RPG</button>
+        <button class="filter-btn" data-filter="simulation">Simulation</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card reveal" data-category="competitive">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div class="portfolio-overlay">
+              <i class="fa-solid fa-crosshairs fa-2x"></i>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <h4>ACE Force 2</h4>
+            <span class="portfolio-tag">Competitive FPS</span>
+            <p>Valorant-style competitive shooter. Led matchmaking queue design, Glicko-2 rating, and ranked progression system. Tested with 1M+ concurrent players.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal" data-category="rpg">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <div class="portfolio-overlay">
+              <i class="fa-solid fa-dragon fa-2x"></i>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <h4>Destiny Rising</h4>
+            <span class="portfolio-tag">MMOSTG</span>
+            <p>Mobile adaptation of Destiny 2's equipment system. Designed ELO matchmaking, energy cycles, and loot drop frameworks for the live-service economy.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal" data-category="rpg">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <div class="portfolio-overlay">
+              <i class="fa-solid fa-ghost fa-2x"></i>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <h4>Phantom Spirit</h4>
+            <span class="portfolio-tag">RPG Mobile</span>
+            <p>Tomb-raiding themed RPG. Designed monetization events with PRD mechanics, dungeon challenge systems, and introduced FairyGUI for standardized UI.</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card reveal" data-category="simulation">
+          <div class="portfolio-thumb" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+            <div class="portfolio-overlay">
+              <i class="fa-solid fa-utensils fa-2x"></i>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <h4>Kitchen Rush 2</h4>
+            <span class="portfolio-tag">Simulation</span>
+            <p>Restaurant management sim. Designed the core service loop, recipe unlocks, progression ladders, quest systems, and cooperative multiplayer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== BLOG ===== -->
+    <section id="blog" class="section">
+      <div class="section-header">
+        <h2>Blog</h2>
+        <div class="section-title-border"></div>
+        <p class="section-subtitle">My Diary</p>
+      </div>
+
+      <div class="blog-grid">
+        <div class="blog-card reveal">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+            <span class="blog-category">Learning</span>
+          </div>
+          <div class="blog-info">
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
+            <h4>Career Migration: From Game Matchmaking to Recommendation Systems</h4>
+            <p>A roadmap for transitioning from game matchmaking expertise toward recommendation systems, ads ranking, and online decision systems.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+            <span class="blog-category">Technical</span>
+          </div>
+          <div class="blog-info">
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
+            <h4>Designing Glicko-2 for Squad-Based Competitive Games</h4>
+            <p>How to adapt individual skill rating algorithms for team-based scenarios with mid-join, multi-faction support, and fairness constraints.</p>
+          </div>
+        </div>
+
+        <div class="blog-card reveal">
+          <div class="blog-thumb" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
+            <span class="blog-category">Design</span>
+          </div>
+          <div class="blog-info">
+            <span class="blog-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
+            <h4>Rank Progression: Balancing Competitive Integrity and Player Satisfaction</h4>
+            <p>Exploring asymptotic rank growth mechanisms that let every player feel progress while maintaining meaningful tier boundaries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <div class="section-title-border"></div>
+        <p class="section-subtitle">Get in Touch</p>
+      </div>
+
+      <div class="contact-info-grid">
+        <div class="contact-card reveal">
+          <i class="fa-solid fa-envelope"></i>
+          <h4>Email</h4>
+          <p><a href="mailto:blocksang@outlook.com">blocksang@outlook.com</a></p>
+        </div>
+        <div class="contact-card reveal">
+          <i class="fa-solid fa-location-dot"></i>
+          <h4>Location</h4>
+          <p>Shenzhen, China</p>
+        </div>
+        <div class="contact-card reveal">
+          <i class="fa-brands fa-github"></i>
+          <h4>GitHub</h4>
+          <p><a href="https://github.com/Si3rraQuack" target="_blank">Si3rraQuack</a></p>
+        </div>
+        <div class="contact-card reveal">
+          <i class="fa-solid fa-circle-check"></i>
+          <h4>Status</h4>
+          <p>Open to Opportunities</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Send a Message</h3>
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== EXTRA ===== -->
+    <section id="extra" class="section">
+      <div class="section-header">
+        <h2>Extra</h2>
+        <div class="section-title-border"></div>
+      </div>
+
+      <!-- Fun Facts -->
+      <div class="subsection">
+        <h3>Fun Facts</h3>
+        <div class="funfacts-grid">
+          <div class="funfact-card reveal">
+            <i class="fa-solid fa-calendar-days"></i>
+            <div class="funfact-number" data-target="7">0</div>
+            <div class="funfact-label">Years Experience</div>
+          </div>
+          <div class="funfact-card reveal">
+            <i class="fa-solid fa-gamepad"></i>
+            <div class="funfact-number" data-target="4">0</div>
+            <div class="funfact-label">Shipped Titles</div>
+          </div>
+          <div class="funfact-card reveal">
+            <i class="fa-solid fa-users"></i>
+            <div class="funfact-number" data-target="1000000" data-suffix="+">0</div>
+            <div class="funfact-label">Players Matched</div>
+          </div>
+          <div class="funfact-card reveal">
+            <i class="fa-solid fa-trophy"></i>
+            <div class="funfact-number" data-target="2">0</div>
+            <div class="funfact-label">&times; Good Performance</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Knowledges -->
+      <div class="subsection">
+        <h3>Knowledges</h3>
+        <div class="knowledge-tags">
+          <span class="tag">Glicko-2</span>
+          <span class="tag">ELO</span>
+          <span class="tag">Matchmaking</span>
+          <span class="tag">Ranked Systems</span>
+          <span class="tag">PRD</span>
+          <span class="tag">FairyGUI</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Python</span>
+          <span class="tag">Simulation</span>
+          <span class="tag">Game Balance</span>
+          <span class="tag">LiveOps</span>
+          <span class="tag">System Design</span>
+          <span class="tag">Reward Frameworks</span>
+          <span class="tag">Queue Design</span>
+          <span class="tag">Player Progression</span>
+        </div>
+      </div>
+
+      <!-- Game Experience -->
+      <div class="subsection">
+        <h3>Game Experience</h3>
+        <div class="game-exp-grid">
+          <div class="game-exp-card reveal">
+            <i class="fa-solid fa-crosshairs"></i>
+            <h4>Competitive Shooters</h4>
+            <ul>
+              <li>Rainbow Six Siege <strong>&gt;2000h</strong></li>
+              <li>Arc Raiders <strong>Lv 70</strong></li>
+              <li>Escape from Tarkov <strong>PVE Lv 60</strong></li>
+              <li>Arena Breakout <strong>Ace 3</strong></li>
+            </ul>
+          </div>
+          <div class="game-exp-card reveal">
+            <i class="fa-solid fa-trophy"></i>
+            <h4>Casual Competitive</h4>
+            <ul>
+              <li>Clash Royale <strong>12,000 Trophies</strong></li>
+              <li>Brawl Stars <strong>30,000 Trophies</strong></li>
+            </ul>
+          </div>
+          <div class="game-exp-card reveal">
+            <i class="fa-solid fa-hat-wizard"></i>
+            <h4>MMORPG</h4>
+            <ul>
+              <li>Shenmu 4 Mobile</li>
+              <li>Ghost Language City</li>
+              <li>Immortal Mortal</li>
+            </ul>
+          </div>
+          <div class="game-exp-card reveal">
+            <i class="fa-solid fa-store"></i>
+            <h4>Simulation &amp; Management</h4>
+            <ul>
+              <li>Township</li>
+              <li>Overcooked</li>
+              <li>Diner Bros</li>
+              <li>SimCity</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Sierra Sang. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
