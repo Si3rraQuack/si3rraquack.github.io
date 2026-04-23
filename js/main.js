@@ -146,6 +146,35 @@
     });
   });
 
+  /* ---------- COLLAPSIBLE TIMELINE ITEMS ---------- */
+  var COLLAPSE_TRIGGER = 450;
+  var COLLAPSED_HEIGHT = 300;
+
+  function initCollapsibleTimeline() {
+    document.querySelectorAll('.timeline-item').forEach(function (item) {
+      if (item.scrollHeight <= COLLAPSE_TRIGGER) return;
+
+      item.classList.add('collapsible');
+      item.style.maxHeight = COLLAPSED_HEIGHT + 'px';
+
+      item.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return;
+
+        if (item.classList.contains('expanded')) {
+          item.style.maxHeight = item.scrollHeight + 'px';
+          item.offsetHeight; // force reflow so the browser sees start value
+          item.style.maxHeight = COLLAPSED_HEIGHT + 'px';
+          item.classList.remove('expanded');
+        } else {
+          item.style.maxHeight = item.scrollHeight + 'px';
+          item.classList.add('expanded');
+        }
+      });
+    });
+  }
+
+  window.addEventListener('load', initCollapsibleTimeline);
+
   /* ---------- SCROLL REVEAL ---------- */
   const reveals = document.querySelectorAll('.reveal');
 

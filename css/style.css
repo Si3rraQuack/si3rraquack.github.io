@@ -486,6 +486,32 @@ ul {
   margin-top: 1.2em;
 }
 
+.timeline-item.collapsible {
+  overflow: hidden;
+  cursor: pointer;
+  transition: max-height 0.4s ease-out, border-color 0.3s, box-shadow 0.3s;
+}
+
+.timeline-item.collapsible::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--card-bg) 65%);
+  pointer-events: none;
+  transition: opacity 0.4s ease-out;
+}
+
+.timeline-item.collapsible.expanded {
+  cursor: pointer;
+}
+
+.timeline-item.collapsible.expanded::after {
+  opacity: 0;
+}
+
 /* Skills */
 .skills-columns {
   display: grid;
