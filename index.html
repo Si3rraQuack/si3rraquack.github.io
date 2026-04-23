@@ -28,7 +28,7 @@
           <li><a href="#about" class="nav-link active"><i class="fa-solid fa-user"></i><span>About Me</span></a></li>
           <li><a href="#resume" class="nav-link"><i class="fa-solid fa-file-lines"></i><span>Resume</span></a></li>
           <li><a href="#portfolio" class="nav-link"><i class="fa-solid fa-briefcase"></i><span>Portfolio</span></a></li>
-          <li><a href="#blog" class="nav-link"><i class="fa-solid fa-blog"></i><span>Blog</span></a></li>
+          <li><a href="#project" class="nav-link"><i class="fa-solid fa-diagram-project"></i><span>Project</span></a></li>
           <li><a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i><span>Contact</span></a></li>
           <li><a href="#extra" class="nav-link"><i class="fa-solid fa-star"></i><span>Extra</span></a></li>
         </ul>
@@ -71,7 +71,8 @@
           contribute to scaling systems and driving measurable player impact.
         </p>
         <div class="about-buttons">
-          <a href="res/cv.md" class="btn btn-primary" download><i class="fa-solid fa-download"></i> Download CV</a>
+          <a href="res/files/cv-zh-cn.pdf" class="btn btn-primary" download><i class="fa-solid fa-download"></i> Download CV (CHN)</a>
+          <a href="res/files/cv-en-us.pdf" class="btn btn-primary" download><i class="fa-solid fa-download"></i> Download CV (ENG)</a>
           <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Contact</a>
         </div>
       </div>
@@ -227,43 +228,49 @@
       </div>
     </section>
 
-    <!-- ===== BLOG ===== -->
-    <section id="blog" class="section">
+    <!-- ===== PROJECT ===== -->
+    <section id="project" class="section">
       <div class="section-header">
-        <h2>Blog</h2>
+        <h2>Project</h2>
         <div class="section-title-border"></div>
-        <p class="section-subtitle">My Diary</p>
+        <p class="section-subtitle">My Works</p>
       </div>
 
-      <div class="blog-grid">
-        <div class="blog-card reveal">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
-            <span class="blog-category">Learning</span>
+      <div class="project-filters">
+        <button class="project-filter-btn active" data-filter="all">All</button>
+        <button class="project-filter-btn" data-filter="project-a">Project A</button>
+        <button class="project-filter-btn" data-filter="project-b">Project B</button>
+      </div>
+
+      <div class="project-grid">
+        <div class="project-card reveal" data-category="none">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
           </div>
-          <div class="blog-info">
-            <span class="blog-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
+          <div class="project-info">
+            <span class="project-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
             <h4>Career Migration: From Game Matchmaking to Recommendation Systems</h4>
             <p>A roadmap for transitioning from game matchmaking expertise toward recommendation systems, ads ranking, and online decision systems.</p>
           </div>
         </div>
 
-        <div class="blog-card reveal">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
-            <span class="blog-category">Technical</span>
+        <div class="project-card reveal" data-category="project-a">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+            <span class="project-tag">Project A</span>
           </div>
-          <div class="blog-info">
-            <span class="blog-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
+          <div class="project-info">
+            <span class="project-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
             <h4>Designing Glicko-2 for Squad-Based Competitive Games</h4>
             <p>How to adapt individual skill rating algorithms for team-based scenarios with mid-join, multi-faction support, and fairness constraints.</p>
           </div>
         </div>
 
-        <div class="blog-card reveal">
-          <div class="blog-thumb" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
-            <span class="blog-category">Design</span>
+        <div class="project-card reveal" data-category="project-a project-b">
+          <div class="project-thumb" style="background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);">
+            <span class="project-tag">Project A</span>
+            <span class="project-tag">Project B</span>
           </div>
-          <div class="blog-info">
-            <span class="blog-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
+          <div class="project-info">
+            <span class="project-date"><i class="fa-regular fa-calendar"></i> Coming Soon</span>
             <h4>Rank Progression: Balancing Competitive Integrity and Player Satisfaction</h4>
             <p>Exploring asymptotic rank growth mechanisms that let every player feel progress while maintaining meaningful tier boundaries.</p>
           </div>
@@ -286,19 +293,19 @@
           <p><a href="mailto:blocksang@outlook.com">blocksang@outlook.com</a></p>
         </div>
         <div class="contact-card reveal">
-          <i class="fa-solid fa-location-dot"></i>
-          <h4>Location</h4>
-          <p>Shenzhen, China</p>
-        </div>
-        <div class="contact-card reveal">
           <i class="fa-brands fa-github"></i>
           <h4>GitHub</h4>
           <p><a href="https://github.com/Si3rraQuack" target="_blank">Si3rraQuack</a></p>
         </div>
         <div class="contact-card reveal">
-          <i class="fa-solid fa-circle-check"></i>
-          <h4>Status</h4>
-          <p>Open to Opportunities</p>
+          <i class="fa-brands fa-weixin"></i>
+          <h4>WeChat</h4>
+          <p>SierraDash</p>
+        </div>
+        <div class="contact-card reveal">
+          <i class="fa-solid fa-location-dot"></i>
+          <h4>Location</h4>
+          <p>Shenzhen, China</p>
         </div>
       </div>
     </section>
@@ -341,22 +348,10 @@
       <div class="subsection">
         <h3>Knowledges</h3>
         <div class="knowledge-tags">
-          <span class="tag">Glicko-2</span>
-          <span class="tag">ELO</span>
-          <span class="tag">Matchmaking</span>
-          <span class="tag">Ranked Systems</span>
-          <span class="tag">PRD</span>
-          <span class="tag">FairyGUI</span>
-          <span class="tag">Data Analysis</span>
-          <span class="tag">A/B Testing</span>
-          <span class="tag">Python</span>
-          <span class="tag">Simulation</span>
-          <span class="tag">Game Balance</span>
-          <span class="tag">LiveOps</span>
-          <span class="tag">System Design</span>
-          <span class="tag">Reward Frameworks</span>
-          <span class="tag">Queue Design</span>
-          <span class="tag">Player Progression</span>
+          <span class="tag">elo/glicko-2/trueskill</span>
+          <span class="tag">python/javascript</span>
+          <span class="tag">data analysis/simulation</span>
+          <span class="tag">basic ml tools</span>
         </div>
       </div>
     </section>

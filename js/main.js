@@ -125,6 +125,27 @@
     });
   });
 
+  /* ---------- PROJECT FILTER ---------- */
+  var projectFilterBtns = document.querySelectorAll('.project-filter-btn');
+  var projectCards = document.querySelectorAll('.project-card');
+
+  projectFilterBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      projectFilterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+
+      var filter = btn.getAttribute('data-filter');
+      projectCards.forEach(function (card) {
+        var categories = card.getAttribute('data-category') || '';
+        if (filter === 'all' || categories.split(' ').indexOf(filter) !== -1) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
   /* ---------- SCROLL REVEAL ---------- */
   const reveals = document.querySelectorAll('.reveal');
 
