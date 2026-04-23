@@ -225,7 +225,7 @@
       counters.forEach(function (el) {
         const target = parseInt(el.getAttribute('data-target'), 10);
         const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 1800;
+        const duration = 1500;
         const steps = 60;
         const increment = target / steps;
         let current = 0;
