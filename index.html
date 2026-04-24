@@ -10,8 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>
+<body class="preface-active">
+
+  <!-- ===== PREFACE OVERLAY ===== -->
+  <div id="preface-overlay">
+    <canvas id="preface-canvas"></canvas>
+    <button id="preface-btn" dir="auto">
+      <span class="preface-text-wrap">
+        <span class="preface-text"></span><span class="preface-cursor">_</span>
+      </span>
+    </button>
+  </div>
 
   <!-- ===== SIDEBAR ===== -->
   <div class="sidebar">
@@ -405,6 +416,7 @@
     </footer>
   </main>
 
+  <script src="js/preface.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
