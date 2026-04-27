@@ -163,7 +163,11 @@
   }
 
   mosaicImg.onload = function () {
-    prepareImageSampler();
+    try {
+      prepareImageSampler();
+    } catch (_) {
+      imageData = null;
+    }
     initThree();
   };
   mosaicImg.onerror = function () {
@@ -420,7 +424,9 @@
     camera.updateProjectionMatrix();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-    if (imageData) prepareImageSampler();
+    if (imageData) {
+      try { prepareImageSampler(); } catch (_) { imageData = null; }
+    }
     buildTriangleGrid();
     renderer.render(scene, camera);
   }
