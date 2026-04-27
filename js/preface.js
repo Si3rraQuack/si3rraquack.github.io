@@ -74,6 +74,59 @@
     );
   }
 
+  function extractThemeColor() {
+    if (!imageData) return null;
+    var data = imageData.data;
+    var total = imageData.width * imageData.height;
+    var step = Math.max(1, Math.floor(total / 5000));
+
+    var buckets = [];
+    for (var i = 0; i < 12; i++) buckets[i] = { n: 0, r: 0, g: 0, b: 0 };
+
+    for (var p = 0; p < total; p += step) {
+      var off = p * 4;
+      var rv = data[off], gv = data[off + 1], bv = data[off + 2];
+      var rn = rv / 255, gn = gv / 255, bn = bv / 255;
+      var mx = Math.max(rn, gn, bn), mn = Math.min(rn, gn, bn);
+      var d = mx - mn;
+      var l = (mx + mn) / 2;
+      if (d < 0.05 || l < 0.08 || l > 0.92) continue;
+
+      var h;
+      if (mx === rn) h = ((gn - bn) / d + 6) % 6 * 60;
+      else if (mx === gn) h = ((bn - rn) / d + 2) * 60;
+      else h = ((rn - gn) / d + 4) * 60;
+
+      var bi = Math.floor(h / 30) % 12;
+      buckets[bi].n++;
+      buckets[bi].r += rv;
+      buckets[bi].g += gv;
+      buckets[bi].b += bv;
+    }
+
+    var best = 0;
+    for (var j = 1; j < 12; j++) {
+      if (buckets[j].n > buckets[best].n) best = j;
+    }
+    if (buckets[best].n === 0) return null;
+
+    var bk = buckets[best];
+    return { r: Math.round(bk.r / bk.n), g: Math.round(bk.g / bk.n), b: Math.round(bk.b / bk.n) };
+  }
+
+  function applyThemeToButton(color) {
+    if (!color) return;
+    var lum = (0.299 * color.r + 0.587 * color.g + 0.114 * color.b) / 255;
+    var fg = lum > 0.55 ? '#1e293b' : '#f8fafc';
+
+    btn.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b + ')';
+    btn.style.borderColor = fg;
+    btn.style.color = fg;
+
+    var cursorEl = btn.querySelector('.preface-cursor');
+    if (cursorEl) cursorEl.style.color = fg;
+  }
+
   function initThree() {
     scene = new THREE.Scene();
     camera = new THREE.OrthographicCamera(
@@ -168,6 +221,7 @@
     } catch (_) {
       imageData = null;
     }
+    applyThemeToButton(extractThemeColor());
     initThree();
   };
   mosaicImg.onerror = function () {
