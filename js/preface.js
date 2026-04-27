@@ -18,18 +18,61 @@
      SECTION A — THREE.JS TRIANGLE TESSELLATION
      ============================================= */
 
-  var COLORS = [
-    new THREE.Color(0x0f2027),
-    new THREE.Color(0x163a3a),
-    new THREE.Color(0x1a4a4a),
-    new THREE.Color(0x204e4e),
-    new THREE.Color(0x153535),
-    new THREE.Color(0x122e2e),
+  var FALLBACK_COLORS = [
+    new THREE.Color(0x042f2e),
+    new THREE.Color(0x134e4a),
+    new THREE.Color(0x115e59),
+    new THREE.Color(0x0f766e),
+    new THREE.Color(0x0d9488),
+    new THREE.Color(0x14b8a6),
+    new THREE.Color(0x2dd4bf),
+    new THREE.Color(0x5eead4),
   ];
 
   var scene, camera, renderer;
   var triangleMeshes = [];
-  var triSize = 80;
+  var triSize = 24;
+
+  var mosaicImg = new Image();
+  var sampleCanvas = document.createElement('canvas');
+  var sampleCtx = sampleCanvas.getContext('2d');
+  var imageData = null;
+
+  function prepareImageSampler() {
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    sampleCanvas.width = w;
+    sampleCanvas.height = h;
+
+    var imgAspect = mosaicImg.width / mosaicImg.height;
+    var viewAspect = w / h;
+    var drawW, drawH, drawX, drawY;
+    if (viewAspect > imgAspect) {
+      drawW = w;
+      drawH = w / imgAspect;
+    } else {
+      drawH = h;
+      drawW = h * imgAspect;
+    }
+    drawX = (w - drawW) / 2;
+    drawY = (h - drawH) / 2;
+
+    sampleCtx.drawImage(mosaicImg, drawX, drawY, drawW, drawH);
+    imageData = sampleCtx.getImageData(0, 0, w, h);
+  }
+
+  function sampleColor(cx, cy) {
+    var px = Math.floor(cx + window.innerWidth / 2);
+    var py = Math.floor(window.innerHeight / 2 - cy);
+    px = Math.max(0, Math.min(px, sampleCanvas.width - 1));
+    py = Math.max(0, Math.min(py, sampleCanvas.height - 1));
+    var idx = (py * sampleCanvas.width + px) * 4;
+    return new THREE.Color(
+      imageData.data[idx] / 255,
+      imageData.data[idx + 1] / 255,
+      imageData.data[idx + 2] / 255
+    );
+  }
 
   function initThree() {
     scene = new THREE.Scene();
@@ -43,7 +86,7 @@
     renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x0f2027);
+    renderer.setClearColor(0x1a1408);
 
     buildTriangleGrid();
     renderer.render(scene, camera);
@@ -72,7 +115,7 @@
         var isUp = (col % 2 === 0);
         var geom = new THREE.BufferGeometry();
 
-        var x = offsetX + Math.floor(col / 2) * triSize + (row % 2 === 1 ? triSize / 2 : 0);
+        var x = offsetX + col * (triSize / 2) + (row % 2 === 1 ? triSize / 2 : 0);
         var y = offsetY + row * triH;
 
         var vertices;
@@ -96,8 +139,8 @@
         var cx = (vertices[0] + vertices[3] + vertices[6]) / 3;
         var cy = (vertices[1] + vertices[4] + vertices[7]) / 3;
 
-        var colorIdx = (row * 3 + col * 7 + (isUp ? 0 : 3)) % COLORS.length;
-        var mat = new THREE.MeshBasicMaterial({ color: COLORS[colorIdx], side: THREE.DoubleSide });
+        var color = imageData ? sampleColor(cx, cy) : FALLBACK_COLORS[Math.floor(Math.random() * FALLBACK_COLORS.length)];
+        var mat = new THREE.MeshBasicMaterial({ color: color, side: THREE.DoubleSide });
         var mesh = new THREE.Mesh(geom, mat);
 
         mesh.userData = {
@@ -119,7 +162,14 @@
     }
   }
 
-  initThree();
+  mosaicImg.onload = function () {
+    prepareImageSampler();
+    initThree();
+  };
+  mosaicImg.onerror = function () {
+    initThree();
+  };
+  mosaicImg.src = 'res/preface-bliss.jpg';
 
   /* =============================================
      SECTION B — TYPEWRITER GREETING LOOP
@@ -370,6 +420,7 @@
     camera.updateProjectionMatrix();
 
     renderer.setSize(window.innerWidth, window.innerHeight);
+    if (imageData) prepareImageSampler();
     buildTriangleGrid();
     renderer.render(scene, camera);
   }

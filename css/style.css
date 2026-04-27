@@ -5,22 +5,22 @@
 /* ---------- VARIABLES ---------- */
 :root {
   --sidebar-width: 280px;
-  --sidebar-bg: #0f2027;
-  --sidebar-text: #c8dce6;
-  --sidebar-accent: #20b2aa;
-  --accent: #0f9b8e;
-  --accent-hover: #12bfaf;
-  --bg: #eaf4f4;
-  --card-bg: rgba(255, 255, 255, 0.92);
-  --text: #2c3e3e;
-  --text-heading: #0e1f1f;
-  --text-light: #566b6b;
-  --border: #c2d8d8;
+  --sidebar-bg: #0d1f2d;
+  --sidebar-text: #d0e6f0;
+  --sidebar-accent: #2dd4bf;
+  --accent: #14b8a6;
+  --accent-hover: #2dd4bf;
+  --bg: #f0f9f7;
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --text: #334155;
+  --text-heading: #1e293b;
+  --text-light: #64748b;
+  --border: #d5e8e8;
   --font-heading: 'Poppins', sans-serif;
   --font-body: 'Open Sans', sans-serif;
   --radius: 12px;
-  --shadow: 0 4px 20px rgba(0, 40, 40, 0.08);
-  --shadow-hover: 0 8px 30px rgba(0, 40, 40, 0.15);
+  --shadow: 0 4px 20px rgba(0, 50, 50, 0.06);
+  --shadow-hover: 0 8px 30px rgba(0, 50, 50, 0.12);
   --transition: 0.3s ease;
 }
 
@@ -50,7 +50,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(234, 244, 244, 0.82);
+  background: rgba(240, 249, 247, 0.75);
   z-index: 0;
   pointer-events: none;
 }
@@ -87,7 +87,7 @@ ul {
   top: 0;
   width: var(--sidebar-width);
   height: 100vh;
-  background: linear-gradient(180deg, #0f2027 0%, #163a3a 50%, #0f2027 100%);
+  background: linear-gradient(180deg, #0d1f2d 0%, #164040 50%, #0d1f2d 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,7 +110,7 @@ ul {
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid var(--accent);
-  box-shadow: 0 0 20px rgba(226, 183, 20, 0.25);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.35);
   margin-bottom: 20px;
 }
 
@@ -182,7 +182,7 @@ ul {
 
 .sidebar-nav .nav-link.active {
   color: var(--accent);
-  background: rgba(15, 155, 142, 0.15);
+  background: rgba(20, 184, 166, 0.15);
 }
 
 /* Sidebar Social */
@@ -315,7 +315,7 @@ ul {
   border-color: var(--accent-hover);
   color: var(--sidebar-bg);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(226, 183, 20, 0.4);
+  box-shadow: 0 4px 15px rgba(20, 184, 166, 0.35);
 }
 
 .btn-outline {
@@ -458,7 +458,7 @@ ul {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--accent);
-  background: rgba(15, 155, 142, 0.15);
+  background: rgba(20, 184, 166, 0.15);
   padding: 2px 12px;
   border-radius: 20px;
   margin-bottom: 6px;
@@ -576,7 +576,7 @@ ul {
 .filter-btn.active {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(15, 155, 142, 0.08);
+  background: rgba(20, 184, 166, 0.1);
 }
 
 .portfolio-grid {
@@ -644,7 +644,7 @@ ul {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--accent);
-  background: rgba(15, 155, 142, 0.15);
+  background: rgba(20, 184, 166, 0.15);
   padding: 2px 10px;
   border-radius: 20px;
   margin-bottom: 10px;
@@ -681,7 +681,7 @@ ul {
 .project-filter-btn.active {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(15, 155, 142, 0.08);
+  background: rgba(20, 184, 166, 0.1);
 }
 
 .project-grid {
@@ -865,7 +865,7 @@ ul {
 .tag:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(15, 155, 142, 0.08);
+  background: rgba(20, 184, 166, 0.1);
 }
 
 
