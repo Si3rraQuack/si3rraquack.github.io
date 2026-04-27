@@ -970,6 +970,12 @@ body.preface-active {
   overflow: hidden;
 }
 
+body.preface-active .sidebar,
+body.preface-active .mobile-header,
+body.preface-active .main-content {
+  display: none;
+}
+
 #preface-overlay {
   position: fixed;
   inset: 0;
@@ -1026,4 +1032,16 @@ body.preface-active {
   top: 0;
   animation: blink 1s step-end infinite;
   color: var(--text-heading);
+}
+
+/* ---------- PREFACE DONE — CONTENT REVEAL ---------- */
+body.preface-done .sidebar,
+body.preface-done .mobile-header,
+body.preface-done .main-content {
+  animation: revealContent 0.6s ease-out both;
+}
+
+@keyframes revealContent {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

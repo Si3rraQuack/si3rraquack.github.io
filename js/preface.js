@@ -455,6 +455,7 @@
      ============================================= */
 
   function finishPreface() {
+    document.body.classList.add('preface-done');
     document.body.classList.remove('preface-active');
 
     for (var i = 0; i < triangleMeshes.length; i++) {
@@ -466,6 +467,10 @@
 
     overlay.parentNode.removeChild(overlay);
     window.removeEventListener('resize', handleResize);
+
+    var s = document.createElement('script');
+    s.src = 'js/main.js';
+    document.body.appendChild(s);
   }
 
   function handleResize() {
