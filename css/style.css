@@ -1045,3 +1045,14 @@ body.preface-done .main-content {
   from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+@media (max-width: 768px) {
+  body.preface-done .sidebar {
+    animation: none;
+    transform: translateX(-100%);
+  }
+
+  body.preface-done .sidebar.open {
+    transform: translateX(0);
+  }
+}
