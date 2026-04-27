@@ -136,10 +136,10 @@
     );
     camera.position.z = 10;
 
-    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x1a1408);
+    renderer.setClearColor(0x000000, 0);
 
     buildTriangleGrid();
     renderer.render(scene, camera);
@@ -347,6 +347,9 @@
       ud2.flyDirY = Math.sin(angle);
     }
 
+    document.body.classList.remove('preface-active');
+    document.body.classList.add('preface-done');
+
     animStartTime = performance.now();
     requestAnimationFrame(animateFrame);
   }
@@ -455,8 +458,6 @@
      ============================================= */
 
   function finishPreface() {
-    document.body.classList.add('preface-done');
-    document.body.classList.remove('preface-active');
 
     for (var i = 0; i < triangleMeshes.length; i++) {
       triangleMeshes[i].geometry.dispose();
