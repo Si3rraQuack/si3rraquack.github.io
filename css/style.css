@@ -601,7 +601,7 @@ ul {
 }
 
 .portfolio-card.hidden,
-.project-card.hidden {
+.blog-card.hidden {
   display: none;
 }
 
@@ -656,15 +656,15 @@ ul {
   line-height: 1.6;
 }
 
-/* ---------- PROJECT ---------- */
-.project-filters {
+/* ---------- BLOG ---------- */
+.blog-filters {
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
   flex-wrap: wrap;
 }
 
-.project-filter-btn {
+.blog-filter-btn {
   padding: 8px 22px;
   border: 2px solid var(--border);
   border-radius: 30px;
@@ -677,21 +677,21 @@ ul {
   transition: all var(--transition);
 }
 
-.project-filter-btn:hover,
-.project-filter-btn.active {
+.blog-filter-btn:hover,
+.blog-filter-btn.active {
   border-color: var(--accent);
   color: var(--accent);
   background: rgba(20, 184, 166, 0.1);
 }
 
-.project-grid {
+.blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 24px;
   max-width: calc(360px * 3 + 24px * 2);
 }
 
-.project-card {
+.blog-card {
   color: inherit;
   display: block;
   background: var(--card-bg);
@@ -702,12 +702,12 @@ ul {
   transition: all var(--transition);
 }
 
-.project-card:hover {
+.blog-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
 }
 
-.project-thumb {
+.blog-thumb {
   height: 160px;
   display: flex;
   align-items: flex-end;
@@ -715,7 +715,7 @@ ul {
   padding: 14px;
 }
 
-.project-tag {
+.blog-tag {
   font-size: 0.75rem;
   font-weight: 600;
   color: #fff;
@@ -725,28 +725,28 @@ ul {
   backdrop-filter: blur(4px);
 }
 
-.project-info {
+.blog-card-info {
   padding: 20px;
 }
 
-.project-date {
+.blog-card-date {
   font-size: 0.8rem;
   color: var(--text-light);
   display: block;
   margin-bottom: 8px;
 }
 
-.project-date i {
+.blog-card-date i {
   margin-right: 4px;
 }
 
-.project-info h4 {
+.blog-card-info h4 {
   font-size: 1rem;
   margin-bottom: 8px;
   line-height: 1.4;
 }
 
-.project-info p {
+.blog-card-info p {
   font-size: 0.88rem;
   color: var(--text-light);
   line-height: 1.6;
@@ -1134,7 +1134,7 @@ ul {
 
   .services-grid,
   .portfolio-grid,
-  .project-grid,
+  .blog-grid,
   .contact-info-grid,
   .funfacts-grid {
     grid-template-columns: 1fr;

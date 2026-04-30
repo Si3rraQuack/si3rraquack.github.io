@@ -152,17 +152,17 @@
     });
   });
 
-  /* ---------- PROJECT FILTER ---------- */
-  var projectFilterBtns = document.querySelectorAll('.project-filter-btn');
-  var projectCards = document.querySelectorAll('.project-card');
+  /* ---------- BLOG FILTER ---------- */
+  var blogFilterBtns = document.querySelectorAll('.blog-filter-btn');
+  var blogCards = document.querySelectorAll('.blog-card');
 
-  projectFilterBtns.forEach(function (btn) {
+  blogFilterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      projectFilterBtns.forEach(function (b) { b.classList.remove('active'); });
+      blogFilterBtns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
 
       var filter = btn.getAttribute('data-filter');
-      projectCards.forEach(function (card) {
+      blogCards.forEach(function (card) {
         var categories = card.getAttribute('data-category') || '';
         if (filter === 'all' || categories.split(' ').indexOf(filter) !== -1) {
           card.classList.remove('hidden');
