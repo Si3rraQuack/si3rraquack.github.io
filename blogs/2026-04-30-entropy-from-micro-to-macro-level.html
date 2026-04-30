@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entropy From Micro to Macro: How Statistical Mechanics Becomes Thermodynamics - Sierra Sang</title>
+  <meta name="description" content="Entropy From Micro to Macro: How Statistical Mechanics Becomes Thermodynamics">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="blog-page">
+  <div class="sidebar">
+    <div class="sidebar-inner">
+      <div class="avatar-wrap">
+        <img src="../res/avatar.jpg" alt="Sierra Sang" class="avatar">
+      </div>
+      <h1 class="sidebar-name">Sierra Sang</h1>
+      <div class="sidebar-title">
+        <span class="typed-text"></span><span class="cursor-blink">|</span>
+      </div>
+      <nav class="sidebar-nav blog-nav" aria-label="Blog navigation">
+        <ul>
+          <li><a href="../index.html" class="nav-link"><i class="fa-solid fa-house"></i><span>Home</span></a></li>
+          <li><a href="2026-04-30-cs-history.html" class="nav-link"><i class="fa-solid fa-newspaper"></i><span>Counter-Strike: From Half-Life Mod to Competitive FPS Platform</span></a></li>
+          <li><a href="#blog" class="nav-link active"><i class="fa-solid fa-newspaper"></i><span>Entropy From Micro to Macro: How Statistical Mechanics Becomes Thermodynamics</span></a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-social">
+        <a href="mailto:blocksang@outlook.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://github.com/Si3rraQuack" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mobile-header">
+    <span class="mobile-name">Sierra Sang Blogs</span>
+    <button class="mobile-menu-btn" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+
+  <main class="main-content blog-main">
+    <section id="blog" class="section blog-section">
+      <div class="blog-shell reveal">
+        <header class="blog-hero">
+          <span class="blog-eyebrow"><i class="fa-regular fa-newspaper"></i> Blog</span>
+          <h1 class="blog-title lang-panel is-active" data-lang="en">Entropy From Micro to Macro: How Statistical Mechanics Becomes Thermodynamics</h1>
+          <h1 class="blog-title lang-panel" data-lang="zh">从微观到宏观的熵：统计力学如何通向热力学</h1>
+          <div class="blog-meta">
+            <span class="lang-panel is-active" data-lang="en">16 min read &middot; <time datetime="2026-04-30">Apr 30, 2026</time></span>
+            <span class="lang-panel" data-lang="zh">16 分钟阅读 &middot; <time datetime="2026-04-30">2026年4月30日</time></span>
+          </div>
+          <div class="language-toggle" role="group" aria-label="Language switcher">
+            <button type="button" class="language-btn active" data-lang-switch="en" aria-pressed="true">English</button>
+            <button type="button" class="language-btn" data-lang-switch="zh" aria-pressed="false">&#20013;&#25991;</button>
+          </div>
+          <img src="../res/blogs/2026-04-30-entropy-from-micro-to-macro-level.jpg" alt="Banner for Entropy From Micro to Macro: How Statistical Mechanics Becomes Thermodynamics" class="blog-banner">
+        </header>
+
+        <article class="blog-article lang-panel is-active" data-lang="en" lang="en-US">
+<p>Entropy is one of the rare concepts that can be read in two directions. At the microscopic level, it measures how many microstates can realize the same macroscopic description. At the macroscopic level, it becomes a rule for the direction of spontaneous processes. The bridge between the two is statistical: overwhelmingly likely macrostates are the ones with overwhelmingly many microscopic realizations.</p>
+<p>One small clarification is useful before the derivation begins. The formula</p>
+<div class="math-block">$$
+F = U - TS
+$$</div>
+<p>is the definition of Helmholtz free energy, a thermodynamic potential. It is not itself the microscopic expression for entropy. The usual microscopic starting points are Boltzmann entropy,</p>
+<div class="math-block">$$
+S = k_B \ln \Omega
+$$</div>
+<p>and Gibbs entropy,</p>
+<div class="math-block">$$
+S = -k_B \sum_i p_i \ln p_i
+$$</div>
+<p>where $k_B$ is Boltzmann's constant, $\Omega$ is the number of microstates compatible with a macrostate, and $p_i$ is the probability of microstate $i$.</p>
+<pre class="mermaid">flowchart LR
+    A[Microstates and probabilities] --&gt; B[Entropy]
+    B --&gt; C[Most probable macrostate]
+    C --&gt; D[Maximum total entropy]
+    D --&gt; E[Second law]
+    E --&gt; F[Helmholtz free energy at constant T,V,N]
+    E --&gt; G[Gibbs free energy at constant T,P,N]</pre>
+<h2 id="microstates-macrostates-and-entropy">Microstates, Macrostates, and Entropy</h2>
+<p>Consider an isolated system. A macrostate is specified by coarse variables such as energy, volume, and particle number. A microstate is a detailed microscopic arrangement consistent with those variables. If a macrostate corresponds to $\Omega$ possible microstates, Boltzmann's definition is</p>
+<div class="math-block">$$
+S = k_B \ln \Omega
+$$</div>
+<p>This logarithm is not a decorative choice. If two weakly interacting subsystems $A$ and $B$ form an isolated total system, the number of joint microstates is multiplicative:</p>
+<div class="math-block">$$
+\Omega_{\mathrm{tot}} = \Omega_A \Omega_B
+$$</div>
+<p>Taking the logarithm turns this multiplication into addition:</p>
+<div class="math-block">$$
+S_{\mathrm{tot}}
+= k_B \ln \Omega_{\mathrm{tot}}
+= k_B \ln \Omega_A + k_B \ln \Omega_B
+= S_A + S_B
+$$</div>
+<p>That is why entropy is an extensive quantity. Microstate counts multiply, while entropies add.</p>
+<h2 id="from-counting-to-the-second-law">From Counting to the Second Law</h2>
+<p>For an isolated system, the probability of observing a macrostate is proportional to the number of microstates that realize it:</p>
+<div class="math-block">$$
+P(\mathrm{macrostate}) \propto \Omega_{\mathrm{tot}}
+$$</div>
+<p>Using Boltzmann's definition,</p>
+<div class="math-block">$$
+\Omega_{\mathrm{tot}} = e^{S_{\mathrm{tot}}/k_B}
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+P(\mathrm{macrostate}) \propto e^{S_{\mathrm{tot}}/k_B}
+$$</div>
+<p>The most probable macrostate is therefore the one with the largest total entropy. In a macroscopic system, where the number of particles is enormous, the difference in microstate counts between a lower-entropy and a higher-entropy macrostate is so large that the maximum becomes effectively decisive. This gives the statistical form of the second law:</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{tot}} \ge 0
+$$</div>
+<p>The inequality is not saying that microscopic mechanics contains a mysterious one-way force. It says that spontaneous macroscopic evolution almost always moves toward macrostates with vastly more microscopic realizations. Equality corresponds to equilibrium or the reversible limit; a strict increase corresponds to an irreversible spontaneous process.</p>
+<h2 id="the-clausius-form">The Clausius Form</h2>
+<p>Now place a system in contact with a large heat reservoir at fixed temperature $T$. If the system absorbs heat $Q$, the reservoir loses heat $Q$. Because the reservoir is large and remains effectively at equilibrium, its entropy change is</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{res}} = -\frac{Q}{T}
+$$</div>
+<p>The total entropy change is</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{tot}}
+= \Delta S_{\mathrm{sys}} + \Delta S_{\mathrm{res}}
+= \Delta S_{\mathrm{sys}} - \frac{Q}{T}
+\ge 0
+$$</div>
+<p>Therefore,</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{sys}} \ge \frac{Q}{T}
+$$</div>
+<p>In differential form, this becomes</p>
+<div class="math-block">$$
+dS \ge \frac{\delta Q}{T}
+$$</div>
+<p>For a reversible process, the inequality becomes equality:</p>
+<div class="math-block">$$
+dS = \frac{\delta Q_{\mathrm{rev}}}{T}
+$$</div>
+<p>This is the familiar Clausius expression for macroscopic entropy. It is the same idea as the microscopic argument, but written in the language of heat exchange.</p>
+<h2 id="why-helmholtz-free-energy-appears">Why Helmholtz Free Energy Appears</h2>
+<p>The second law is most direct for an isolated total system. Real laboratory systems are often not isolated: they exchange heat with an environment. Free energies are useful because they absorb the environment's entropy contribution into a quantity defined for the system itself.</p>
+<p>Assume a system is in contact with a heat reservoir and the constraints are fixed $T$, fixed $V$, and fixed $N$. With volume fixed and only heat exchange considered,</p>
+<div class="math-block">$$
+\Delta U = Q
+$$</div>
+<p>The total entropy condition gives</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{tot}}
+= \Delta S_{\mathrm{sys}} - \frac{Q}{T}
+= \Delta S_{\mathrm{sys}} - \frac{\Delta U}{T}
+\ge 0
+$$</div>
+<p>Multiplying by $-T$ reverses the inequality:</p>
+<div class="math-block">$$
+\Delta U - T \Delta S_{\mathrm{sys}} \le 0
+$$</div>
+<p>At constant temperature,</p>
+<div class="math-block">$$
+\Delta(U - TS) \le 0
+$$</div>
+<p>Define Helmholtz free energy as</p>
+<div class="math-block">$$
+F = U - TS
+$$</div>
+<p>Then the spontaneous-process criterion becomes</p>
+<div class="math-block">$$
+\Delta F \le 0 \qquad (T,V,N\ \mathrm{fixed})
+$$</div>
+<p>Equilibrium at fixed $T,V,N$ is therefore a minimum of $F$. The free energy did not replace the second law; it repackaged maximum total entropy into a criterion that only refers to the system.</p>
+<h2 id="the-partition-function-route-to-helmholtz-free-energy">The Partition Function Route to Helmholtz Free Energy</h2>
+<p>The same result can be derived more directly from Gibbs entropy. Suppose the system can occupy microstates $i$ with energies $E_i$ and probabilities $p_i$. Gibbs entropy is</p>
+<div class="math-block">$$
+S = -k_B \sum_i p_i \ln p_i
+$$</div>
+<p>The probabilities must satisfy normalization and fixed mean energy:</p>
+<div class="math-block">$$
+\sum_i p_i = 1
+$$</div>
+<div class="math-block">$$
+\sum_i p_i E_i = U
+$$</div>
+<p>Maximizing $S$ under these constraints gives the canonical distribution:</p>
+<div class="math-block">$$
+p_i = \frac{e^{-\beta E_i}}{Z}
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+\beta = \frac{1}{k_B T}
+$$</div>
+<p>and the partition function is</p>
+<div class="math-block">$$
+Z = \sum_i e^{-\beta E_i}
+$$</div>
+<p>Substituting the canonical probability back into Gibbs entropy,</p>
+<div class="math-block">$$
+\ln p_i = -\beta E_i - \ln Z
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+S
+= -k_B \sum_i p_i(-\beta E_i - \ln Z)
+= k_B \beta \sum_i p_i E_i + k_B \ln Z \sum_i p_i
+$$</div>
+<p>Using $\sum_i p_i E_i = U$ and $\sum_i p_i = 1$,</p>
+<div class="math-block">$$
+S = k_B \beta U + k_B \ln Z
+$$</div>
+<p>Since $k_B\beta = 1/T$,</p>
+<div class="math-block">$$
+S = \frac{U}{T} + k_B \ln Z
+$$</div>
+<p>Multiplying by $T$ and rearranging gives</p>
+<div class="math-block">$$
+U - TS = -k_B T \ln Z
+$$</div>
+<p>Thus,</p>
+<div class="math-block">$$
+F = U - TS = -k_B T \ln Z
+$$</div>
+<p>This is the statistical-mechanical expression for Helmholtz free energy. It also gives the useful derivative relation</p>
+<div class="math-block">$$
+S = -\left(\frac{\partial F}{\partial T}\right)_{V,N}
+$$</div>
+<p>so macroscopic entropy can be recovered from how the free energy changes with temperature.</p>
+<h2 id="why-gibbs-free-energy-appears">Why Gibbs Free Energy Appears</h2>
+<p>Helmholtz free energy is the natural potential for fixed temperature and volume. Many chemical and material processes instead occur at fixed temperature and pressure. In that case, the system exchanges heat and can also do volume work against the environment.</p>
+<p>For a system in contact with an environment at fixed $T$ and $P$, with only pressure-volume work,</p>
+<div class="math-block">$$
+\Delta U = Q - P\Delta V
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+Q = \Delta U + P\Delta V
+$$</div>
+<p>The total entropy condition becomes</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{tot}}
+= \Delta S_{\mathrm{sys}} - \frac{Q}{T}
+= \Delta S_{\mathrm{sys}} - \frac{\Delta U + P\Delta V}{T}
+\ge 0
+$$</div>
+<p>Multiplying by $-T$ gives</p>
+<div class="math-block">$$
+\Delta U + P\Delta V - T\Delta S_{\mathrm{sys}} \le 0
+$$</div>
+<p>At constant $T$ and $P$,</p>
+<div class="math-block">$$
+\Delta(U + PV - TS) \le 0
+$$</div>
+<p>Define Gibbs free energy as</p>
+<div class="math-block">$$
+G = U + PV - TS = H - TS
+$$</div>
+<p>where $H = U + PV$ is enthalpy. The spontaneous-process criterion is</p>
+<div class="math-block">$$
+\Delta G \le 0 \qquad (T,P,N\ \mathrm{fixed})
+$$</div>
+<p>Equilibrium at fixed $T,P,N$ is therefore a minimum of $G$.</p>
+<p>The parallel with Helmholtz free energy also appears in statistical mechanics. In the isothermal-isobaric ensemble, microstates are weighted not only by energy but also by the pressure-volume term:</p>
+<div class="math-block">$$
+p_{i,V} \propto e^{-\beta(E_i + PV)}
+$$</div>
+<p>The corresponding isothermal-isobaric partition function may be written schematically as</p>
+<div class="math-block">$$
+\Delta(T,P,N) = \sum_V \sum_i e^{-\beta(E_i + PV)}
+$$</div>
+<p>or as an integral over volume in the continuous case. The associated thermodynamic potential is</p>
+<div class="math-block">$$
+G = -k_B T \ln \Delta
+$$</div>
+<p>This mirrors the canonical-ensemble relation $F = -k_B T \ln Z$.</p>
+<h2 id="the-three-criteria-in-one-view">The Three Criteria in One View</h2>
+<div class="blog-table-wrap">
+<table>
+<thead>
+<tr>
+<th>External constraint</th>
+<th style="text-align: right;">Equilibrium condition</th>
+<th style="text-align: right;">Spontaneous-process criterion</th>
+<th>Natural potential</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fixed $E,V,N$ isolated system</td>
+<td style="text-align: right;">$S$ maximum</td>
+<td style="text-align: right;">$\Delta S_{\mathrm{tot}} \ge 0$</td>
+<td>Entropy $S$</td>
+</tr>
+<tr>
+<td>Fixed $T,V,N$</td>
+<td style="text-align: right;">$F$ minimum</td>
+<td style="text-align: right;">$\Delta F \le 0$</td>
+<td>Helmholtz free energy $F$</td>
+</tr>
+<tr>
+<td>Fixed $T,P,N$</td>
+<td style="text-align: right;">$G$ minimum</td>
+<td style="text-align: right;">$\Delta G \le 0$</td>
+<td>Gibbs free energy $G$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The underlying principle is the same in all three rows:</p>
+<div class="math-block">$$
+\mathrm{equilibrium} = \mathrm{maximum\ total\ entropy}
+$$</div>
+<p>When the system is isolated, that principle is written directly as entropy maximization. When the system is coupled to a heat reservoir, the reservoir contribution can be folded into $F$. When it is coupled to both a heat reservoir and a pressure reservoir, the contribution can be folded into $G$.</p>
+<h2 id="what-the-derivation-assumes">What the Derivation Assumes</h2>
+<p>There is one important limitation. A completely rigorous derivation of the second law from microscopic mechanics requires more than writing down $S = k_B \ln \Omega$. It also uses statistical assumptions such as equal a priori probabilities, coarse graining, the thermodynamic limit $N \to \infty$, and the practical irrelevance of tiny fluctuations in macroscopic systems.</p>
+<p>That is why the second law is statistical rather than absolute in the same sense as a microscopic equation of motion. A finite system can fluctuate toward lower entropy for a short time. For a macroscopic system, however, such fluctuations are so improbable that entropy increase becomes the reliable direction of observed thermodynamic behavior.</p>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>Original source transcript: <code>sierra-workdir/.historyDialog/2026-04-15-entropy-micro-to-macro-derivation-original.md</code></li>
+</ul>
+        </article>
+
+        <article class="blog-article lang-panel" data-lang="zh" lang="zh-CN">
+<p>熵是少数可以从两个方向理解的概念之一。在微观层面，它衡量的是同一个宏观描述可以由多少种 microstates 实现；在宏观层面，它变成了判断自发过程方向的规则。两者之间的桥梁是统计性的：最可能出现的 macrostates，正是那些拥有压倒性多数微观实现方式的状态。</p>
+<p>在推导开始前，先澄清一个容易混淆的点。公式</p>
+<div class="math-block">$$
+F = U - TS
+$$</div>
+<p>是 Helmholtz free energy 的定义，也就是一个 thermodynamic potential。它本身不是熵的微观表达式。通常的微观起点是 Boltzmann entropy，</p>
+<div class="math-block">$$
+S = k_B \ln \Omega
+$$</div>
+<p>以及 Gibbs entropy，</p>
+<div class="math-block">$$
+S = -k_B \sum_i p_i \ln p_i
+$$</div>
+<p>其中 $k_B$ 是 Boltzmann constant，$\Omega$ 是与某个 macrostate 相容的 microstates 数量，$p_i$ 是 microstate $i$ 的概率。</p>
+<pre class="mermaid">flowchart LR
+    A[Microstates 与 probabilities] --&gt; B[Entropy]
+    B --&gt; C[最可能的 macrostate]
+    C --&gt; D[总熵最大]
+    D --&gt; E[Second law]
+    E --&gt; F[恒定 T,V,N 下的 Helmholtz free energy]
+    E --&gt; G[恒定 T,P,N 下的 Gibbs free energy]</pre>
+<h2 id="microstates-macrostates-与-entropy">Microstates、Macrostates 与 Entropy</h2>
+<p>考虑一个 isolated system。Macrostate 由 energy、volume、particle number 等粗粒度变量指定。Microstate 则是与这些变量相容的具体微观排列。如果一个 macrostate 对应 $\Omega$ 个可能的 microstates，Boltzmann 的定义是</p>
+<div class="math-block">$$
+S = k_B \ln \Omega
+$$</div>
+<p>这里的 logarithm 不是装饰性的选择。如果两个弱相互作用的 subsystems $A$ 与 $B$ 组成一个 isolated total system，它们的联合 microstates 数量是相乘的：</p>
+<div class="math-block">$$
+\Omega_{\mathrm{tot}} = \Omega_A \Omega_B
+$$</div>
+<p>取 logarithm 会把乘法变成加法：</p>
+<div class="math-block">$$
+S_{\mathrm{tot}}
+= k_B \ln \Omega_{\mathrm{tot}}
+= k_B \ln \Omega_A + k_B \ln \Omega_B
+= S_A + S_B
+$$</div>
+<p>这就是为什么 entropy 是 extensive quantity。Microstate counts 相乘，而 entropies 相加。</p>
+<h2 id="从计数到-second-law">从计数到 Second Law</h2>
+<p>对于 isolated system，观察到某个 macrostate 的概率，与实现它的 microstates 数量成正比：</p>
+<div class="math-block">$$
+P(\mathrm{macrostate}) \propto \Omega_{\mathrm{tot}}
+$$</div>
+<p>利用 Boltzmann 的定义，</p>
+<div class="math-block">$$
+\Omega_{\mathrm{tot}} = e^{S_{\mathrm{tot}}/k_B}
+$$</div>
+<p>因此</p>
+<div class="math-block">$$
+P(\mathrm{macrostate}) \propto e^{S_{\mathrm{tot}}/k_B}
+$$</div>
+<p>所以，最可能出现的 macrostate，就是 total entropy 最大的状态。在 macroscopic system 中，particles 数量极其庞大，低熵态与高熵态之间的 microstate counts 差异巨大，因此最大值会变得近乎决定性。这给出了 second law 的统计形式：</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{tot}} \ge 0
+$$</div>
+<p>这个不等式并不是说 microscopic mechanics 中存在某种神秘的单向力。它说明的是，自发的宏观演化几乎总是走向拥有更多微观实现方式的 macrostates。等号对应 equilibrium 或 reversible limit；严格增大则对应 irreversible spontaneous process。</p>
+<h2 id="clausius-形式">Clausius 形式</h2>
+<p>现在让系统与一个温度固定为 $T$ 的大型 heat reservoir 接触。如果系统吸收热量 $Q$，reservoir 就失去热量 $Q$。由于 reservoir 很大，并且实际上始终保持 equilibrium，它的 entropy change 为</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{res}} = -\frac{Q}{T}
+$$</div>
+<p>总熵变为</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{tot}}
+= \Delta S_{\mathrm{sys}} + \Delta S_{\mathrm{res}}
+= \Delta S_{\mathrm{sys}} - \frac{Q}{T}
+\ge 0
+$$</div>
+<p>因此，</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{sys}} \ge \frac{Q}{T}
+$$</div>
+<p>写成 differential form，就是</p>
+<div class="math-block">$$
+dS \ge \frac{\delta Q}{T}
+$$</div>
+<p>对于 reversible process，不等式变为等式：</p>
+<div class="math-block">$$
+dS = \frac{\delta Q_{\mathrm{rev}}}{T}
+$$</div>
+<p>这就是熟悉的 Clausius expression，也就是宏观热力学中的熵表达式。它与微观论证是同一个思想，只是改写成了 heat exchange 的语言。</p>
+<h2 id="为什么会出现-helmholtz-free-energy">为什么会出现 Helmholtz Free Energy</h2>
+<p>Second law 对 isolated total system 最直接。但真实实验中的系统通常并不是 isolated：它们会与 environment 交换热量。Free energies 的作用，是把 environment 的 entropy contribution 吸收到一个只由系统自身定义的量里。</p>
+<p>假设系统与 heat reservoir 接触，并且满足固定 $T$、固定 $V$、固定 $N$。在 volume 固定且只考虑 heat exchange 时，</p>
+<div class="math-block">$$
+\Delta U = Q
+$$</div>
+<p>总熵条件给出</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{tot}}
+= \Delta S_{\mathrm{sys}} - \frac{Q}{T}
+= \Delta S_{\mathrm{sys}} - \frac{\Delta U}{T}
+\ge 0
+$$</div>
+<p>两边乘以 $-T$，不等号方向反转：</p>
+<div class="math-block">$$
+\Delta U - T \Delta S_{\mathrm{sys}} \le 0
+$$</div>
+<p>在 constant temperature 下，</p>
+<div class="math-block">$$
+\Delta(U - TS) \le 0
+$$</div>
+<p>定义 Helmholtz free energy：</p>
+<div class="math-block">$$
+F = U - TS
+$$</div>
+<p>于是 spontaneous-process criterion 变成</p>
+<div class="math-block">$$
+\Delta F \le 0 \qquad (T,V,N\ \mathrm{fixed})
+$$</div>
+<p>因此，在固定 $T,V,N$ 下，equilibrium 对应 $F$ 的 minimum。Free energy 并没有替代 second law；它只是把 maximum total entropy 重新包装成一个只涉及系统自身的判据。</p>
+<h2 id="通过-partition-function-推导-helmholtz-free-energy">通过 Partition Function 推导 Helmholtz Free Energy</h2>
+<p>同样的结果，也可以更直接地从 Gibbs entropy 推出。设系统可以处于 microstates $i$，其 energies 为 $E_i$，probabilities 为 $p_i$。Gibbs entropy 为</p>
+<div class="math-block">$$
+S = -k_B \sum_i p_i \ln p_i
+$$</div>
+<p>这些 probabilities 必须满足 normalization 和固定 mean energy：</p>
+<div class="math-block">$$
+\sum_i p_i = 1
+$$</div>
+<div class="math-block">$$
+\sum_i p_i E_i = U
+$$</div>
+<p>在这些 constraints 下最大化 $S$，会得到 canonical distribution：</p>
+<div class="math-block">$$
+p_i = \frac{e^{-\beta E_i}}{Z}
+$$</div>
+<p>其中</p>
+<div class="math-block">$$
+\beta = \frac{1}{k_B T}
+$$</div>
+<p>而 partition function 为</p>
+<div class="math-block">$$
+Z = \sum_i e^{-\beta E_i}
+$$</div>
+<p>把 canonical probability 代回 Gibbs entropy，</p>
+<div class="math-block">$$
+\ln p_i = -\beta E_i - \ln Z
+$$</div>
+<p>所以</p>
+<div class="math-block">$$
+S
+= -k_B \sum_i p_i(-\beta E_i - \ln Z)
+= k_B \beta \sum_i p_i E_i + k_B \ln Z \sum_i p_i
+$$</div>
+<p>利用 $\sum_i p_i E_i = U$ 以及 $\sum_i p_i = 1$，</p>
+<div class="math-block">$$
+S = k_B \beta U + k_B \ln Z
+$$</div>
+<p>由于 $k_B\beta = 1/T$，</p>
+<div class="math-block">$$
+S = \frac{U}{T} + k_B \ln Z
+$$</div>
+<p>两边乘以 $T$ 并整理，得到</p>
+<div class="math-block">$$
+U - TS = -k_B T \ln Z
+$$</div>
+<p>因此，</p>
+<div class="math-block">$$
+F = U - TS = -k_B T \ln Z
+$$</div>
+<p>这就是 Helmholtz free energy 的 statistical-mechanical expression。它也给出一个常用的 derivative relation：</p>
+<div class="math-block">$$
+S = -\left(\frac{\partial F}{\partial T}\right)_{V,N}
+$$</div>
+<p>也就是说，macroscopic entropy 可以从 free energy 随 temperature 的变化中恢复出来。</p>
+<h2 id="为什么会出现-gibbs-free-energy">为什么会出现 Gibbs Free Energy</h2>
+<p>Helmholtz free energy 是固定 temperature 与 volume 时的自然 potential。许多 chemical 和 material processes 则发生在固定 temperature 与 pressure 的条件下。此时，系统既交换热量，也可以对 environment 做 volume work。</p>
+<p>对于一个与固定 $T$、固定 $P$ 的 environment 接触的系统，若只存在 pressure-volume work，</p>
+<div class="math-block">$$
+\Delta U = Q - P\Delta V
+$$</div>
+<p>所以</p>
+<div class="math-block">$$
+Q = \Delta U + P\Delta V
+$$</div>
+<p>总熵条件变成</p>
+<div class="math-block">$$
+\Delta S_{\mathrm{tot}}
+= \Delta S_{\mathrm{sys}} - \frac{Q}{T}
+= \Delta S_{\mathrm{sys}} - \frac{\Delta U + P\Delta V}{T}
+\ge 0
+$$</div>
+<p>两边乘以 $-T$ 得到</p>
+<div class="math-block">$$
+\Delta U + P\Delta V - T\Delta S_{\mathrm{sys}} \le 0
+$$</div>
+<p>在 constant $T$ 与 constant $P$ 下，</p>
+<div class="math-block">$$
+\Delta(U + PV - TS) \le 0
+$$</div>
+<p>定义 Gibbs free energy：</p>
+<div class="math-block">$$
+G = U + PV - TS = H - TS
+$$</div>
+<p>其中 $H = U + PV$ 是 enthalpy。于是 spontaneous-process criterion 为</p>
+<div class="math-block">$$
+\Delta G \le 0 \qquad (T,P,N\ \mathrm{fixed})
+$$</div>
+<p>因此，在固定 $T,P,N$ 下，equilibrium 对应 $G$ 的 minimum。</p>
+<p>这种与 Helmholtz free energy 的平行关系，也会出现在 statistical mechanics 中。在 isothermal-isobaric ensemble 中，microstates 的权重不仅取决于 energy，还取决于 pressure-volume term：</p>
+<div class="math-block">$$
+p_{i,V} \propto e^{-\beta(E_i + PV)}
+$$</div>
+<p>对应的 isothermal-isobaric partition function 可以概略写成</p>
+<div class="math-block">$$
+\Delta(T,P,N) = \sum_V \sum_i e^{-\beta(E_i + PV)}
+$$</div>
+<p>在 continuous case 中，也可以写成对 volume 的积分。对应的 thermodynamic potential 是</p>
+<div class="math-block">$$
+G = -k_B T \ln \Delta
+$$</div>
+<p>这与 canonical ensemble 中的关系 $F = -k_B T \ln Z$ 完全平行。</p>
+<h2 id="三种判据放在一起看">三种判据放在一起看</h2>
+<div class="blog-table-wrap">
+<table>
+<thead>
+<tr>
+<th>外界约束</th>
+<th style="text-align: right;">Equilibrium condition</th>
+<th style="text-align: right;">Spontaneous-process criterion</th>
+<th>Natural potential</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>固定 $E,V,N$ 的 isolated system</td>
+<td style="text-align: right;">$S$ maximum</td>
+<td style="text-align: right;">$\Delta S_{\mathrm{tot}} \ge 0$</td>
+<td>Entropy $S$</td>
+</tr>
+<tr>
+<td>固定 $T,V,N$</td>
+<td style="text-align: right;">$F$ minimum</td>
+<td style="text-align: right;">$\Delta F \le 0$</td>
+<td>Helmholtz free energy $F$</td>
+</tr>
+<tr>
+<td>固定 $T,P,N$</td>
+<td style="text-align: right;">$G$ minimum</td>
+<td style="text-align: right;">$\Delta G \le 0$</td>
+<td>Gibbs free energy $G$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>三行背后的底层原则是同一个：</p>
+<div class="math-block">$$
+\mathrm{equilibrium} = \mathrm{maximum\ total\ entropy}
+$$</div>
+<p>当系统 isolated 时，这个原则直接写成 entropy maximization。当系统与 heat reservoir 耦合时，reservoir contribution 可以折叠进 $F$。当系统同时与 heat reservoir 和 pressure reservoir 耦合时，这部分贡献可以折叠进 $G$。</p>
+<h2 id="这个推导依赖什么假设">这个推导依赖什么假设</h2>
+<p>这里有一个重要限制。从 microscopic mechanics 完全严格地推出 second law，并不只是写下 $S = k_B \ln \Omega$ 就足够。它还需要一些 statistical assumptions，例如 equal a priori probabilities、coarse graining、thermodynamic limit $N \to \infty$，以及 macroscopic systems 中微小 fluctuations 在实践上的不可见性。</p>
+<p>因此，second law 是统计性的，而不是像 microscopic equation of motion 那样绝对。有限系统可以在短时间内向 lower entropy fluctuation。对于 macroscopic system，这类 fluctuations 的概率小到几乎不可能，因此 entropy increase 就成为我们观察到的 thermodynamic behavior 的可靠方向。</p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>原始资料对话：<code>sierra-workdir/.historyDialog/2026-04-15-entropy-micro-to-macro-derivation-original.md</code></li>
+</ul>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Sierra Sang. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/blog.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+</body>
+</html>
