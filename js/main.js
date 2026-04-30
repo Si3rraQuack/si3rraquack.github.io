@@ -5,11 +5,30 @@
 (function () {
   'use strict';
 
-  function onPageLoaded(callback) {
+  function runAfterPageLoad(callback) {
     if (document.readyState === 'complete') {
       requestAnimationFrame(callback);
     } else {
-      window.addEventListener('load', callback);
+      window.addEventListener('load', function () {
+        requestAnimationFrame(callback);
+      }, { once: true });
+    }
+  }
+
+  function bindWindowTrigger(eventName, callback, options) {
+    window.addEventListener(eventName, callback, options);
+    runWhenContentReady(callback);
+  }
+
+  function runWhenContentReady(callback) {
+    function run() {
+      runAfterPageLoad(callback);
+    }
+
+    if (document.body.classList.contains('preface-active')) {
+      document.addEventListener('preface:done', run, { once: true });
+    } else {
+      run();
     }
   }
 
@@ -53,7 +72,7 @@
     }
   }
 
-  typeLoop();
+  runWhenContentReady(typeLoop);
 
   /* ---------- SIDEBAR NAV — ACTIVE STATE & SCROLL ---------- */
   const sections = document.querySelectorAll('.section');
@@ -76,7 +95,7 @@
     });
   }
 
-  window.addEventListener('scroll', activateNav, { passive: true });
+  bindWindowTrigger('scroll', activateNav, { passive: true });
 
   navLinks.forEach(function (link) {
     link.addEventListener('click', function () {
@@ -181,7 +200,7 @@
     });
   }
 
-  onPageLoaded(initCollapsibleTimeline);
+  runWhenContentReady(initCollapsibleTimeline);
 
   /* ---------- SCROLL REVEAL ---------- */
   const reveals = document.querySelectorAll('.reveal');
@@ -196,8 +215,7 @@
     });
   }
 
-  window.addEventListener('scroll', checkReveal, { passive: true });
-  onPageLoaded(checkReveal);
+  bindWindowTrigger('scroll', checkReveal, { passive: true });
 
   /* ---------- SKILL BAR ANIMATION ---------- */
   const skillFills = document.querySelectorAll('.skill-fill');
@@ -216,8 +234,7 @@
     }
   }
 
-  window.addEventListener('scroll', animateSkills, { passive: true });
-  onPageLoaded(animateSkills);
+  bindWindowTrigger('scroll', animateSkills, { passive: true });
 
   /* ---------- FUN FACTS COUNTER ANIMATION ---------- */
   const counters = document.querySelectorAll('.funfact-number');
@@ -261,6 +278,5 @@
     return n.toString();
   }
 
-  window.addEventListener('scroll', animateCounters, { passive: true });
-  onPageLoaded(animateCounters);
+  bindWindowTrigger('scroll', animateCounters, { passive: true });
 })();

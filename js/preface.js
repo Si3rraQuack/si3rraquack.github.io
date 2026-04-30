@@ -349,6 +349,7 @@
 
     document.body.classList.remove('preface-active');
     document.body.classList.add('preface-done');
+    document.dispatchEvent(new Event('preface:done'));
 
     animStartTime = performance.now();
     requestAnimationFrame(animateFrame);
@@ -468,10 +469,6 @@
 
     overlay.parentNode.removeChild(overlay);
     window.removeEventListener('resize', handleResize);
-
-    var s = document.createElement('script');
-    s.src = 'js/main.js';
-    document.body.appendChild(s);
   }
 
   function handleResize() {
