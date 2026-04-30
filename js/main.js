@@ -5,6 +5,14 @@
 (function () {
   'use strict';
 
+  function onPageLoaded(callback) {
+    if (document.readyState === 'complete') {
+      requestAnimationFrame(callback);
+    } else {
+      window.addEventListener('load', callback);
+    }
+  }
+
   /* ---------- TYPED TEXT ANIMATION ---------- */
   const titles = [
     'Game System Designer',
@@ -173,7 +181,7 @@
     });
   }
 
-  window.addEventListener('load', initCollapsibleTimeline);
+  onPageLoaded(initCollapsibleTimeline);
 
   /* ---------- SCROLL REVEAL ---------- */
   const reveals = document.querySelectorAll('.reveal');
@@ -189,7 +197,7 @@
   }
 
   window.addEventListener('scroll', checkReveal, { passive: true });
-  window.addEventListener('load', checkReveal);
+  onPageLoaded(checkReveal);
 
   /* ---------- SKILL BAR ANIMATION ---------- */
   const skillFills = document.querySelectorAll('.skill-fill');
@@ -209,7 +217,7 @@
   }
 
   window.addEventListener('scroll', animateSkills, { passive: true });
-  window.addEventListener('load', animateSkills);
+  onPageLoaded(animateSkills);
 
   /* ---------- FUN FACTS COUNTER ANIMATION ---------- */
   const counters = document.querySelectorAll('.funfact-number');
@@ -254,5 +262,5 @@
   }
 
   window.addEventListener('scroll', animateCounters, { passive: true });
-  window.addEventListener('load', animateCounters);
+  onPageLoaded(animateCounters);
 })();
