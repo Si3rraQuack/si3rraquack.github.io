@@ -279,4 +279,48 @@
   }
 
   bindWindowTrigger('scroll', animateCounters, { passive: true });
+
+  /* ---------- VISITOR COUNT ---------- */
+  function initVisitorCount() {
+    const visitorCount = document.querySelector('[data-visitor-count]');
+    if (!visitorCount) return;
+
+    const endpoint = visitorCount.getAttribute('data-counter-endpoint');
+    if (!endpoint) return;
+
+    const totalEl = document.getElementById('visit-total');
+    const statusEl = document.getElementById('visit-count-status');
+    if (!totalEl || !statusEl) return;
+
+    const normalizedEndpoint = /^https?:\/\//i.test(endpoint) ? endpoint : 'https://' + endpoint;
+    const requestUrl = new URL(normalizedEndpoint, window.location.href);
+
+    visitorCount.hidden = false;
+    statusEl.textContent = 'Updating...';
+
+    fetch(requestUrl.toString(), {
+      method: 'POST',
+      cache: 'no-store',
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Visitor counter request failed');
+        return response.json();
+      })
+      .then(function (data) {
+        totalEl.textContent = formatPlainNumber(data.total);
+        statusEl.textContent = '';
+      })
+      .catch(function () {
+        visitorCount.classList.add('visitor-count-error');
+        statusEl.textContent = 'Counter unavailable';
+      });
+  }
+
+  function formatPlainNumber(value) {
+    const number = Number(value);
+    if (!Number.isFinite(number) || number < 0) return '--';
+    return Math.floor(number).toLocaleString('en-US');
+  }
+
+  runWhenContentReady(initVisitorCount);
 })();

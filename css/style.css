@@ -884,6 +884,38 @@ ul {
   color: var(--text-light);
 }
 
+.visitor-count {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.visitor-count[hidden] {
+  display: none;
+}
+
+.visitor-count-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.visitor-count-item i {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.visitor-count-status {
+  color: var(--text-light);
+}
+
+.visitor-count-error .visitor-count-status {
+  color: #b45309;
+}
+
 /* ---------- BLOG PAGES ---------- */
 .blog-page .main-content {
   max-width: calc(1120px + var(--sidebar-width));
