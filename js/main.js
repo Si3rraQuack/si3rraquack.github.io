@@ -285,7 +285,7 @@
     const visitorCount = document.querySelector('[data-visitor-count]');
     if (!visitorCount) return;
 
-    const endpoint = visitorCount.getAttribute('data-counter-endpoint');
+    const endpoint = (visitorCount.getAttribute('data-counter-endpoint') || '').trim();
     if (!endpoint) return;
 
     const totalEl = document.getElementById('visit-total');
@@ -299,7 +299,7 @@
     statusEl.textContent = 'Updating...';
 
     fetch(requestUrl.toString(), {
-      method: 'POST',
+      method: 'GET',
       cache: 'no-store',
     })
       .then(function (response) {
@@ -307,7 +307,7 @@
         return response.json();
       })
       .then(function (data) {
-        totalEl.textContent = formatPlainNumber(data.total);
+        totalEl.textContent = formatPlainNumber(data.count);
         statusEl.textContent = '';
       })
       .catch(function () {
